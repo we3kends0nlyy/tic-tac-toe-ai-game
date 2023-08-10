@@ -39,8 +39,8 @@ class RandomComputerPlayer(ComputerPlayer):
     def get_computer_move(self, game_state: GameState) -> Move | None:
         try:
             return random.choice(game_state.possible_moves)
-        except IndexError
-        return None
+        except IndexError:
+            return None
 
 
     
