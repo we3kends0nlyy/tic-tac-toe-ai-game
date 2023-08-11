@@ -1,7 +1,7 @@
 from tic_tac_toe.game.players import Player, RandomComputerPlayer, MinimaxComputerPlayer
 from tic_tac_toe.logic.models import Mark
-from .players import ConsolePlayer
 from typing import NamedTuple
+from .players import ConsolePlayer
 
 import argparse
 
