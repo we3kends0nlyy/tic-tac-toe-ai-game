@@ -1,6 +1,8 @@
-from library.src.tic_tac_toe.game.players import Player
-from library.src.tic_tac_toe.logic.exceptions import InvalidMove
-from library.src.tic_tac_toe.logic.models import GameState, Move
+from tic_tac_toe.game.players import Player
+from tic_tac_toe.logic.exceptions import InvalidMove
+from tic_tac_toe.logic.models import GameState, Move
+
+import re
 
 class ConsolePlayer(Player):
     def get_move(self, game_state: GameState) -> Move | None:
@@ -15,4 +17,12 @@ class ConsolePlayer(Player):
                 except InvalidMove:
                     print("That cell is already occupied.")
         return None
-    
+
+def grid_to_index(grid: str) -> int:
+    if re.match(r"[abcABC][123]", grid):
+        col, row = grid
+    elif re.match(r"[123][abcABC]", grid):
+        row, col = grid
+    else:
+        raise ValueError("Invalid grid coordinates")
+    return 3 * (int(row) - 1) + (ord(col.upper()) - ord("A"))

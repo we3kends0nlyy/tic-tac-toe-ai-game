@@ -2,8 +2,8 @@ import abc
 import textwrap
 from typing import Iterable
 
-from library.src.tic_tac_toe.game.renderers import Renderer
-from library.src.tic_tac_toe.logic.models import GameState
+from tic_tac_toe.game.renderers import Renderer
+from tic_tac_toe.logic.models import GameState
 
 class ConsoleRenderer(Renderer):
     def render(self, game_state: GameState) -> None:
@@ -14,7 +14,7 @@ class ConsoleRenderer(Renderer):
         else:
             print_solid(game_state.grid.cells)
             if game_state.tie:
-                print("No one wins this time\N{nuetral face}")
+                print("No one wins this time \N{neutral face}")
 
 def clear_screen() -> None:
     print("\033c", end="")
